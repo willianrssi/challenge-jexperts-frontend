@@ -1,9 +1,10 @@
 import React from 'react'
+import Routes from './routes'
 import './App.css'
 
 const App = () => {
   return (
-    <h1>Commit inicial</h1>
+    <Routes />
   )
 }
 

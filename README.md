@@ -5,6 +5,8 @@ Possível solução para o desafio proposto para vaga de front end da JExperts
 ## Ferramentas utilizadas
 
 - create-react-app
+- bootstrap
+- react-router
 
 ## Author
 
