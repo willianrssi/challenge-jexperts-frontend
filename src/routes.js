@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Login from './components/Login'
+import PageLogin from './pages/PageLogin'
 import Cadastro from './components/Cadastro'
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path='/' component={Login} />
+      <Route exact path='/' component={PageLogin} />
       <Route path='/cadastro' component={Cadastro} />
       <Route path='*' component={() => <h1>Página não Encontrada</h1>} />
     </Switch>

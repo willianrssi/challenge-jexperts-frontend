@@ -1,12 +1,14 @@
 import { CHANGE_FIELD } from './actions'
 
 const INITIAL_STATE = {
+  nome: '',
+  telefone: '',
+  email: '',
   login: '',
   senha: ''
 }
 
-const loginReducer = (state = INITIAL_STATE, action) => {
-  console.log(action)
+const cadastroReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CHANGE_FIELD: {
       return {
@@ -20,4 +22,4 @@ const loginReducer = (state = INITIAL_STATE, action) => {
   }
 }
 
-export default loginReducer
+export default cadastroReducer
