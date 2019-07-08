@@ -1,5 +1,6 @@
 import axios from 'axios'
 import constants from '../../../utils/constants'
+import { TOKEN_VALIDADO, USER_FETCHED } from './actions'
 
 export const login = (valores) => submit(valores, `${constants.OAPI_URL}/login`)
 
@@ -9,7 +10,7 @@ const submit = (valores, url) => (dispatch) => {
   axios.post(url, valores)
     .then(resposta => [
       dispatch({
-        type: 'USER_FETCHED',
+        type: USER_FETCHED,
         payload: resposta.data
       })
     ]).catch(e => {
@@ -19,7 +20,7 @@ const submit = (valores, url) => (dispatch) => {
 }
 
 export const logout = () => ({
-  type: 'TOKEN_VALIDADO',
+  type: TOKEN_VALIDADO,
   payload: false
 })
 
@@ -28,19 +29,19 @@ export const validaToken = (token) => (dispatch) => {
     axios.post(`${constants.OAPI_URL}/validaToken`, { token })
       .then(resposta => {
         dispatch({
-          type: 'TOKEN_VALIDADO',
+          type: TOKEN_VALIDADO,
           payload: resposta.data.valid
         })
       })
       .catch(() => {
         dispatch({
-          type: 'TOKEN_VALIDADO',
+          type: TOKEN_VALIDADO,
           payload: false
         })
       })
   } else {
     dispatch({
-      type: 'TOKEN_VALIDADO',
+      type: TOKEN_VALIDADO,
       payload: false
     })
   }

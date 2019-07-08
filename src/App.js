@@ -1,10 +1,10 @@
 import React from 'react'
-import Routes from './routes'
+import ClosedRoutes from './ClosedRoutes'
 import './App.css'
 
 const App = (props) => {
   return (
-    <Routes />
+    <ClosedRoutes />
   )
 }
 

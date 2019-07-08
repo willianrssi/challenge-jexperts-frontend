@@ -1,3 +1,4 @@
+import { TOKEN_VALIDADO, USER_FETCHED } from './actions'
 const userKey = '_jexperts_user'
 
 const INITIAL_STATE = {
@@ -7,7 +8,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'TOKEN_VALIDADO':
+    case TOKEN_VALIDADO:
       if (action.payload) {
         return {
           ...state,
@@ -21,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
           user: null
         }
       }
-    case 'USER_FETCHED':
+    case USER_FETCHED:
       localStorage.setItem(userKey, JSON.stringify(action.payload))
       return {
         ...state,

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 
 import App from './App'
-import PageLogin from './pages/PageLogin'
+import OpenRoutes from './OpenRoutes'
 import { validaToken } from './redux-flow/reducers/auth/action-creators'
 
 class WithAuthentication extends Component {
@@ -18,16 +18,19 @@ class WithAuthentication extends Component {
       axios.defaults.headers.common['authorization'] = user.token
       return <App>{this.props.children}</App>
     } else if (!user && !validToken) {
-      return <PageLogin />
+      return <OpenRoutes />
     } else {
       return false
     }
   }
 }
 
-const mapStateToProps = state => ({ auth: state.auth })
+const mapStateToProps = state => ({
+  auth: state.auth
+})
 
-const mapDispatchToProps = dispatch => ({ 
-  validaToken: (token) => dispatch(validaToken(token)) })
+const mapDispatchToProps = dispatch => ({
+  validaToken: (token) => dispatch(validaToken(token))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(WithAuthentication)
