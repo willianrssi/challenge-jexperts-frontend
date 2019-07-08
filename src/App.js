@@ -2,7 +2,7 @@ import React from 'react'
 import Routes from './routes'
 import './App.css'
 
-const App = () => {
+const App = (props) => {
   return (
     <Routes />
   )
