@@ -1,6 +1,6 @@
 import axios from 'axios'
 import constants from '../../../utils/constants'
-import { TOKEN_VALIDADO, USER_FETCHED, ERROR_SUBMIT, CLEAR_ERROR_SUBMIT } from './actions'
+import { TOKEN_VALIDADO, USER_FETCHED, ERROR_SUBMIT, CLEAR_ERROR_SUBMIT, CHANGE_FIELD } from './actions'
 
 export const login = (valores) => (dispatch) => {
   axios.post(`${constants.OAPI_URL}/login`, valores)
@@ -12,6 +12,8 @@ export const login = (valores) => (dispatch) => {
     })
     .then(() => {
       dispatch(clearErrorsForm('Login'))
+      dispatch(changeField('login', ''))
+      dispatch(changeField('senha', ''))
     })
     .catch(e => {
       dispatch({
@@ -23,6 +25,14 @@ export const login = (valores) => (dispatch) => {
       })
     })
 }
+
+export const changeField = (field, value) => ({
+  type: CHANGE_FIELD,
+  payload: {
+    field,
+    value
+  }
+})
 
 export const signup = (valores) => submit(valores, 'Signup', `${constants.OAPI_URL}/signup`)
 
@@ -49,6 +59,7 @@ const submit = (valores, form, url) => (dispatch) => {
 }
 
 export const clearErrorsForm = (form) => (dispatch) => {
+  console.log(form)
   dispatch({
     type: CLEAR_ERROR_SUBMIT,
     payload: `error${form}`
