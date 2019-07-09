@@ -1,9 +1,11 @@
-import { TOKEN_VALIDADO, USER_FETCHED } from './actions'
+import { TOKEN_VALIDADO, USER_FETCHED, ERROR_SUBMIT, CLEAR_ERROR_SUBMIT } from './actions'
 const userKey = '_jexperts_user'
 
 const INITIAL_STATE = {
   user: JSON.parse(localStorage.getItem(userKey)),
-  validToken: false
+  validToken: false,
+  errorLogin: '',
+  errorSignup: ''
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -29,7 +31,18 @@ export default (state = INITIAL_STATE, action) => {
         user: action.payload,
         validToken: true
       }
-
+    case ERROR_SUBMIT: {
+      return {
+        ...state,
+        [action.payload.formError]: action.payload.errors
+      }
+    }
+    case CLEAR_ERROR_SUBMIT: {
+      return {
+        ...state,
+        [action.payload]: ''
+      }
+    }
     default:
       return state
   }
