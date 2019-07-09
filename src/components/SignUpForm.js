@@ -7,7 +7,7 @@ const SignUpForm = ({ fields, changeField, validateErrors, submitForm }) => (
         Nome*
       </label>
       <input id='cadastro-nome' className={`form-control ${validateErrors.nome ? 'is-invalid' : ''}`} type='text' placeholder='Nome' value={fields.nome} onChange={(e) => changeField('nome', e.target.value)} />
-      {validateErrors.nome ? <small id='passwordHelp' className='text-danger'>
+      {validateErrors.nome ? <small className='text-danger'>
         Campo obrigatório
       </small> : <small />}
     </div>
@@ -22,7 +22,7 @@ const SignUpForm = ({ fields, changeField, validateErrors, submitForm }) => (
         Email*
       </label>
       <input id='cadastro-email' className={`form-control ${validateErrors.email ? 'is-invalid' : ''}`} type='email' placeholder='Email' value={fields.email} onChange={(e) => changeField('email', e.target.value)} />
-      {validateErrors.email ? <small id='passwordHelp' className='text-danger'>
+      {validateErrors.email ? <small className='text-danger'>
         Insira um email válido
       </small> : <small />}
     </div>
@@ -31,7 +31,7 @@ const SignUpForm = ({ fields, changeField, validateErrors, submitForm }) => (
         Login*
       </label>
       <input id='cadastro-login' className={`form-control ${validateErrors.login ? 'is-invalid' : ''}`} type='text' placeholder='Login' value={fields.login} onChange={(e) => changeField('login', e.target.value)} />
-      {validateErrors.login ? <small id='passwordHelp' className='text-danger'>
+      {validateErrors.login ? <small className='text-danger'>
         Campo obrigatório
       </small> : <small />}
     </div>
@@ -40,7 +40,7 @@ const SignUpForm = ({ fields, changeField, validateErrors, submitForm }) => (
         Senha*
       </label>
       <input id='cadastro-senha' className={`form-control ${validateErrors.senha ? 'is-invalid' : ''}`} type='password' placeholder='Senha' value={fields.senha} onChange={(e) => changeField('senha', e.target.value)} />
-      {validateErrors.senha ? <small id='passwordHelp' className='text-danger'>
+      {validateErrors.senha ? <small className='text-danger'>
         Campo obrigatório
       </small> : <small />}
       <small className='form-text text-muted'>(*) Campos Obrigatórios</small>

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { fetchUsers, selectUserToDelete, deleteUser } from '../redux-flow/reducers/users/action-creators'
+import { setUserToEdit } from '../redux-flow/reducers/edit/action-creators'
 
 import Modal from '../components/Modal'
 import UsersTable from '../components/UsersTable'
@@ -44,7 +45,7 @@ class PageHome extends Component {
   }
 
   render () {
-    const { users } = this.props
+    const { users, setUserToEdit } = this.props
     return (
       <Fragment>
         <div className='container'>
@@ -65,6 +66,7 @@ class PageHome extends Component {
               <UsersTable
                 users={users.list}
                 handleShowModal={this.handleShowModal}
+                handleSelectUser={setUserToEdit}
               />
             </div>
           </div>
@@ -85,7 +87,8 @@ class PageHome extends Component {
 const mapDispatchToProps = (dispatch) => ({
   fetchUsers: () => dispatch(fetchUsers()),
   selectUserToDelete: (selectedUserId) => dispatch(selectUserToDelete(selectedUserId)),
-  deleteUser: (userId) => dispatch(deleteUser(userId))
+  deleteUser: (userId) => dispatch(deleteUser(userId)),
+  setUserToEdit: (user) => dispatch(setUserToEdit(user))
 })
 
 const mapStateToProps = (state) => ({

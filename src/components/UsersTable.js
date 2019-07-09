@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const UsersTable = ({ users, handleShowModal }) => (
+const UsersTable = ({ users, handleShowModal, handleSelectUser }) => (
   <table className='table table-striped border '>
     <thead>
       <tr>
@@ -21,7 +21,7 @@ const UsersTable = ({ users, handleShowModal }) => (
           <td >{user.login}</td>
           <td className='d-flex' >
             <Link to='/editar'>
-              <button className='btn btn-success mr-2'>
+              <button onClick={() => handleSelectUser(user)} className='btn btn-success mr-2'>
                 <i className='fa fa-edit' />
               </button>
             </Link>
