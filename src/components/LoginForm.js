@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LoginForm = ({ login, senha, changeField, handleLogin }) => (
   <form onSubmit={(e) => handleLogin(e)} >
@@ -14,7 +15,12 @@ const LoginForm = ({ login, senha, changeField, handleLogin }) => (
       </label>
       <input id='login-senha' className='form-control' type='password' placeholder='Senha' value={senha} onChange={(e) => changeField('senha', e.target.value)} />
     </div>
-    <button type='submit' className='btn btn-primary'>Login</button>
+    <div className='d-flex justify-content-end'>
+      <Link to='/cadastro'>
+        <button className='btn btn-link'>Cadastre-se</button>
+      </Link>
+      <button type='submit' className='ml-2 btn btn-primary'>Login</button>
+    </div>
   </form>
 )
 

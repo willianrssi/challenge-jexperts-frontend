@@ -1,1 +1,8 @@
 export const CHANGE_FIELD = 'cadastro: CHANGE_FIELD'
+export const USER_REGISTERED = 'cadastro: USER_REGISTERED'
+export const VALIDATE_ERRORS = 'cadastro: VALIDATE_ERRORS'
+export const CLEAR_FIELDS_FORM = 'cadastro: CLEAR_FIELDS_FORM'
+export const CLOSE_SUCCESS_MESSAGE = 'cadastro: CLOSE_SUCCESS_MESSAGE'
+export const RESET_TO_INITIAL_STATE = 'cadastro: RESET_TO_INITIAL_STATE'
+export const SIGNUP_ERROR = 'cadastro: SIGNUP_ERROR'
+export const CLOSE_ERROR_MESSAGE = 'cadastro: CLOSE_ERROR_MESSAGE'

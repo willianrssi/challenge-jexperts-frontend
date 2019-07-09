@@ -5,7 +5,6 @@ import { fetchUsers, selectUserToDelete, deleteUser } from '../redux-flow/reduce
 import Modal from '../components/Modal'
 import UsersTable from '../components/UsersTable'
 import Alert from '../components/Alert'
-import Header from '../components/Header'
 
 class PageHome extends Component {
   constructor (props) {
@@ -48,7 +47,6 @@ class PageHome extends Component {
     const { users } = this.props
     return (
       <Fragment>
-        <Header />
         <div className='container'>
           <div className='row'>
             <div className='col mt-5 justify-content-center'>

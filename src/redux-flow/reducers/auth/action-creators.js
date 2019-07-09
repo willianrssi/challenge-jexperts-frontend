@@ -11,7 +11,7 @@ export const login = (valores) => (dispatch) => {
       })
     })
     .then(() => {
-      dispatch(clearErrorsForm('Login'))
+      dispatch(clearErrorsForm())
       dispatch(changeField('login', ''))
       dispatch(changeField('senha', ''))
     })
@@ -34,35 +34,10 @@ export const changeField = (field, value) => ({
   }
 })
 
-export const signup = (valores) => submit(valores, 'Signup', `${constants.OAPI_URL}/signup`)
-
-const submit = (valores, form, url) => (dispatch) => {
-  axios.post(url, valores)
-    .then(resposta => {
-      dispatch({
-        type: USER_FETCHED,
-        payload: resposta.data
-      })
-    })
-    .then(() => {
-      dispatch(clearErrorsForm(form))
-    })
-    .catch(e => {
-      dispatch({
-        type: ERROR_SUBMIT,
-        payload: {
-          formError: `error${form}`,
-          errors: e.response.data.errors
-        }
-      })
-    })
-}
-
-export const clearErrorsForm = (form) => (dispatch) => {
-  console.log(form)
+export const clearErrorsForm = () => (dispatch) => {
   dispatch({
     type: CLEAR_ERROR_SUBMIT,
-    payload: `error${form}`
+    payload: `errorLogin`
   })
 }
 

@@ -20,7 +20,7 @@ const UsersTable = ({ users, handleShowModal }) => (
           <td >{user.email}</td>
           <td >{user.login}</td>
           <td className='d-flex' >
-            <Link to='/cadastro'>
+            <Link to='/editar'>
               <button className='btn btn-success mr-2'>
                 <i className='fa fa-edit' />
               </button>
