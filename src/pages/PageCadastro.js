@@ -33,7 +33,7 @@ class PageCadastro extends Component {
           </div>
         </div>
         <div className='row justify-content-center'>
-          <div className='col-12 col-sm-8 col-md-6 col-lg-4'>
+          <div className='col-12 col-sm-8 col-md-6 col-lg-4 pb-3'>
             <div className='mb-2'>
               <Alert handleDismiss={closeSuccessMgs} show={signupSuccess.show} title='Usuário Cadastrado' variant='success'>
                 {signupSuccess.message}
