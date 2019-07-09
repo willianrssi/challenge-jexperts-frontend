@@ -17,7 +17,7 @@ const LoginForm = ({ login, senha, changeField, handleLogin }) => (
     </div>
     <div className='d-flex justify-content-end'>
       <Link to='/cadastro'>
-        <button className='btn btn-link'>Cadastre-se</button>
+        <button tabIndex='-1' className='btn btn-link'>Cadastre-se</button>
       </Link>
       <button type='submit' className='ml-2 btn btn-primary'>Login</button>
     </div>
