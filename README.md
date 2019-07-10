@@ -52,12 +52,15 @@ Os 4 reducers são:
 ### Com autenticação:
 
 `/` : Exibe a lista de usuários
+
 `/editar` : Onde é possível editar o Usuário
+
 `/cadastrar` : Onde é possível cadastrar um novo Usuário
 
 ### Sem autenticação:
 
 `/` : Exibe a página de login
+
 `/cadastrar` : Onde é possível cadastrar um novo Usuário
 
 
