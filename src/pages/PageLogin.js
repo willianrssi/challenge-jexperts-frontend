@@ -49,10 +49,10 @@ class PageLogin extends Component {
                 >
                   {auth.errorLogin &&
                     auth.errorLogin.map((erro, index) => (
-                      <React.Fragment key={index} >
+                      <Fragment key={index} >
                         <span>{erro}</span>
                         <br />
-                      </React.Fragment>
+                      </Fragment>
                     ))}
                 </Alert>
 

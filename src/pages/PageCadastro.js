@@ -14,6 +14,7 @@ class PageCadastro extends Component {
   }
 
   componentDidMount () {
+    // Apaga todas as mensagens de erro ou sucesso ao renderizar
     this.props.resetToInitialState()
   }
 

@@ -24,7 +24,7 @@ const EditForm = ({ fields, changeField, submitForm, validateErrors, changePassw
       </label>
       <input id='edit-email' className={`form-control ${validateErrors.email ? 'is-invalid' : ''}`} type='email' placeholder='Email' value={fields.email} onChange={(e) => changeField('email', e.target.value)} />
       {validateErrors.email ? <small className='text-danger'>
-        Campo obrigatório
+        Insira um email válido
       </small> : <small />}
     </div>
     <div className='form-group'>

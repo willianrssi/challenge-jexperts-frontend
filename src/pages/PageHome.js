@@ -41,6 +41,7 @@ class PageHome extends Component {
   }
 
   componentDidMount () {
+    // Pega os usuários
     this.props.fetchUsers()
   }
 
