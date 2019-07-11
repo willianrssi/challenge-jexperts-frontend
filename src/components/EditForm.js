@@ -1,51 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Field from './Field'
 
 const EditForm = ({ fields, changeField, submitForm, validateErrors, changePassword, toggleChangePassword }) => (
   <form onSubmit={(e) => submitForm(e)}>
-    <div className='form-group'>
-      <label htmlFor='edit-nome'>
-        Nome*
-      </label>
-      <input id='edit-nome' className={`form-control ${validateErrors.nome ? 'is-invalid' : ''}`} type='text' placeholder='Nome' value={fields.nome} onChange={(e) => changeField('nome', e.target.value)} />
-      {validateErrors.nome ? <small className='text-danger'>
-        Campo obrigatório
-      </small> : <small />}
-    </div>
-    <div className='form-group'>
-      <label htmlFor='edit-telefone'>
-        Telefone
-      </label>
-      <input id='edit-telefone' className='form-control' type='text' placeholder='Telefone' value={fields.telefone} onChange={(e) => changeField('telefone', e.target.value)} />
-    </div>
-    <div className='form-group'>
-      <label htmlFor='edit-email'>
-        Email*
-      </label>
-      <input id='edit-email' className={`form-control ${validateErrors.email ? 'is-invalid' : ''}`} type='email' placeholder='Email' value={fields.email} onChange={(e) => changeField('email', e.target.value)} />
-      {validateErrors.email ? <small className='text-danger'>
-        Insira um email válido
-      </small> : <small />}
-    </div>
-    <div className='form-group'>
-      <label htmlFor='edit-login'>
-        Login*
-      </label>
-      <input id='edit-login' className={`form-control ${validateErrors.login ? 'is-invalid' : ''}`} type='text' placeholder='Login' value={fields.login} onChange={(e) => changeField('login', e.target.value)} />
-      {validateErrors.login ? <small className='text-danger'>
-        Campo obrigatório
-      </small> : <small />}
-    </div>
-    <div className='form-group'>
-      <input type='button' className='btn btn-outline-secondary btn-sm d-block mb-2' onClick={() => toggleChangePassword()} value='Trocar Senha' />
-      <label htmlFor='edit-senha'>
-        Senha*
-      </label>
-      <input id='edit-senha' className={`form-control ${validateErrors.senha ? 'is-invalid' : ''}`} type='password' disabled={!changePassword} placeholder='Senha' value={fields.senha} onChange={(e) => changeField('senha', e.target.value)} />
-      {validateErrors.senha ? <small className='text-danger'>
-        Campo obrigatório
-      </small> : <small />}
-    </div>
+    <Field id='edit-nome' label='Nome*' type='text' placeholder='Nome' value={fields.nome} changeField={changeField} changeFieldId='nome' validateError={validateErrors.nome} errorMSG='Campo obrigatório' />
+
+    <Field id='edit-telefone' label='Telefone' type='text' placeholder='Telefone' value={fields.telefone} changeField={changeField} changeFieldId='telefone' />
+
+    <Field id='edit-email' label='Email*' type='email' placeholder='Email' value={fields.email} changeField={changeField} changeFieldId='email' validateError={validateErrors.email} errorMSG='Insira um email válido' />
+
+    <Field id='edit-login' label='Login*' type='text' placeholder='Login' value={fields.login} changeField={changeField} changeFieldId='login' validateError={validateErrors.login} errorMSG='Campo obrigatório' />
+
+    <input type='button' className='btn btn-outline-secondary btn-sm d-block mb-2' onClick={() => toggleChangePassword()} value='Trocar Senha' />
+
+    <Field id='edit-senha' label='Senha*' type='password' placeholder='Senha' value={fields.senha} changeField={changeField} changeFieldId='senha' validateError={validateErrors.senha} errorMSG='Campo obrigatório' disabled={!changePassword} />
+
     <div className='d-flex justify-content-end'>
       <Link to='/'>
         <button className='btn btn-link mr-2' >Voltar</button>

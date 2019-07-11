@@ -8,6 +8,7 @@ import { validaToken } from './redux-flow/reducers/auth/action-creators'
 
 class AuthManager extends Component {
   componentDidMount () {
+    // Tenta validar o token presente no local storage
     if (this.props.auth.user) {
       this.props.validaToken(this.props.auth.user.token)
     }
